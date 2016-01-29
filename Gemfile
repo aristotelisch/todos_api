@@ -31,7 +31,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'rails_12factor'
 gem 'grape', '~>0.10'
 gem 'rack-cors', '~>0.3'
 gem "haml-rails"
