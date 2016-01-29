@@ -35,6 +35,7 @@ gem 'rails_12factor'
 gem 'grape', '~>0.10'
 gem 'rack-cors', '~>0.3'
 gem "haml-rails"
+gem 'puma'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
