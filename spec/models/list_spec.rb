@@ -14,4 +14,19 @@ describe List do
       expect(list).not_to be_valid
     end
   end
+
+  describe '#last_item' do
+    let(:list) { create(:list) }
+
+    it 'returns the last associated item' do
+      item1 = list.items.create description: 'test 1', completed: false
+      item2 = list.items.create description: 'test 2', completed: false
+
+      expect(list.last_item).to eq item2
+    end
+
+    it 'returns nil when there are not available items' do
+      expect(list.last_item).to be_nil
+    end
+  end
 end

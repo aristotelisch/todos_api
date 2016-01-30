@@ -9,7 +9,11 @@ class List < ActiveRecord::Base
     end
   end
 
+  def last_item
+    items.last if items.present?
+  end
+
   def as_json(options={})
-    super except: :id, methods: :items
+    super except: :id, methods: [:items, :last_item]
   end
 end
