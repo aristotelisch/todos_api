@@ -3,6 +3,9 @@ module Lists
     format :json
 
     resource :lists do
+      http_basic do |user, password|
+        (user == 'beta' && password == 'beta')
+      end
 
       helpers do
         def fetch_list
