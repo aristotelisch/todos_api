@@ -34,6 +34,14 @@ module Lists
         list
       end
 
+      params { requires :new_name, type: String, desc: "Update your list's name." }
+      put '/:name' do
+        fetch_list
+        @list.update_attributes(name: params[:new_name])
+        error!({errors: @list.errors.full_messages}, 422) unless @list.valid?
+        @list
+      end
+
       segment '/:name' do
         get do
           fetch_list
