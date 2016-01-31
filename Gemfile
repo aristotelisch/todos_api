@@ -38,6 +38,7 @@ gem "haml-rails"
 gem 'puma'
 
 group :development, :test do
+  gem 'pry-rails'
   gem 'guard'
   gem 'guard-rspec'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
