@@ -5,6 +5,14 @@ describe Lists::API do
   let(:list) {List.create name: 'list_name'}
   let(:item) {list.items.create description: 'item_description', completed: false}
 
+  describe 'GET /lists' do
+    it 'shows all available lists' do
+      lists = List.includes(:items)
+      get '/lists'
+      expect(response.body).to eq lists.to_json
+    end
+  end
+
   describe 'POST /lists' do
     it "creates a new list" do
       expect { post '/lists', {name: 'list-name'} }.to change{ List.count }.by 1

@@ -17,6 +17,13 @@ module Lists
         end
       end
 
+      #
+      #  Get all available lists
+      #
+      get do
+        @list = List.includes(:items)
+      end
+
       params { requires :name, type: String, desc: "Your list's name." }
       post do
         list = List.create name: params[:name]
